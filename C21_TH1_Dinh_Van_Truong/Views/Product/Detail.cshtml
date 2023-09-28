@@ -1,0 +1,46 @@
+﻿@model Product
+<div class="container">
+    <div class="row">
+        <div class="col-sm-3">
+
+            <img class="img-fluid" src="/@Model.ImageUrl" />
+
+        </div>
+        <div class="col-sm-9">
+            <div class="alert alert-info" role="alert">
+                THÔNG TIN CHI TIẾT SẢN PHẨM
+            </div>
+            <p>TÊN SẢN PHẨM: @Model.Name</p>
+            <p>GIÁ SẢN PHẨM: <span class="text-danger">@Model.Price</span> USD</p>
+            <button class="btn btn-success" > ADD TO CART</button>
+        </div>
+    </div>
+    <div class="alert alert-secondary" role="alert">
+        SẢN PHẨM CÙNG LOẠI
+    </div>
+    <div class="row" >
+
+    @foreach (var item in ViewBag.products)
+    {
+        <div class="col-3 mb-2" >
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Name</h5>
+                    </div>
+                    <img src="/@item.ImageUrl" class="card-img-top img-fluid" >
+                </div>
+        </div>        
+
+    }
+
+
+    </div>
+   <br/>
+
+
+    <div class="alert alert-info" role="alert">
+        MÔ TẢ SẢN PHẨM
+
+    </div>
+    @Html.Raw(Model.Description)
+</div>

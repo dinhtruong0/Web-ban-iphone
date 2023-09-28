@@ -1,0 +1,40 @@
+﻿@model List<Category>
+
+<partial name="_Toast" />
+
+<h1>
+    Category
+</h1>
+<hr />
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>#Id</th>
+            <th>Name</th>
+            <th>Display order</th>
+            <th colspan="2" class="text-center">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Id </td>
+                <td>@x.Name </td>
+                <td>@x.DisplayOrder </td>
+
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@x.Id" class="btn btn-success"><i class="bi bi-pencil-square"></i> Edit</a>
+
+                </td>
+                <td>
+
+                    <a asp-action="Delete" asp-route-id="@x.Id" class="btn btn-danger"><i class="bi bi-trash"></i> Delete</a>
+                </td>
+
+            </tr>
+
+        }
+    </tbody>
+</table>
